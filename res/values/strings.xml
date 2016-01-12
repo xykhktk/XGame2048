@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">game2048</string>
+    <string name="action_settings">setting</string>
+    <string name="hello_world">Hello world!</string>
+
+    <string name="mainactivity_textview_score">分数:</string>
+    <string name="mainactivity_textview_hightest_score">最高:</string>
+	<string name="mainactivity_game_name">2048</string>
+	
+	<string name="gameview_game_is_over">游戏结束</string>
+	<string name="gameview_again">重来</string>
+</resources>

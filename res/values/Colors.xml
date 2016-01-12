@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="GameViewBg2">#ffffffff</color>
+    
+    <color name="mainactivity_bg">#ffffff</color>
+    <color name="container_bg">#ff795548</color>
+    <color name="ScoreText">#ffffff</color>
+    
+     <color name="lable_text_2">#ff795548</color>
+     <color name="lable_text_512">#ffffffff</color>
+</resources>
