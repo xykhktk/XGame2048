@@ -7,5 +7,6 @@ public class Consts {
 	public final static String Sp_Key_Have_Status = "Sp_Key_Have_Status";
 	public final static String Sp_Key_Data_Index = "Sp_Key_Data_Index";
 	public final static String Sp_Key_High_Score = "Sp_Key_High_Score";
+	public final static String Sp_Key_Current_Score = "Sp_Key_Current_Score";
 	
 }

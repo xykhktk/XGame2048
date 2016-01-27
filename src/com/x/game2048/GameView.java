@@ -24,6 +24,7 @@ public class GameView extends GridLayout {
 	private Context context;
 	private SharedPreferences sp;
 	private int score = 0;
+	private int undoScore = 0;
 	/**
 	 * 用于回退一步
 	 */
@@ -85,6 +86,7 @@ public class GameView extends GridLayout {
 				mMainActivity.setHighScore(score);
 			}
 		}
+		e.putInt(Consts.Sp_Key_Current_Score, 0);
 		score = 0;
 		e.commit();
 		
@@ -207,6 +209,7 @@ public class GameView extends GridLayout {
 							
 							if(mMainActivity != null) {
 								mMainActivity.addScore(cards[x][y1-1].getNum());
+								undoScore = score;
 								score += cards[x][y1-1].getNum();
 							}
 							
@@ -241,6 +244,7 @@ public class GameView extends GridLayout {
 							
 							if(mMainActivity != null) {
 								mMainActivity.addScore(cards[x][y1+1].getNum());
+								undoScore = score;
 								score += cards[x][y1+1].getNum();
 							}
 							
@@ -275,6 +279,7 @@ public class GameView extends GridLayout {
 							
 							if( mMainActivity != null) {
 								mMainActivity.addScore(cards[x1-1][y].getNum());
+								undoScore = score;
 								score += cards[x1-1][y].getNum();
 							}
 							
@@ -309,6 +314,7 @@ public class GameView extends GridLayout {
 							
 							if(mMainActivity != null) {
 								mMainActivity.addScore(cards[x1+1][y].getNum());
+								undoScore = score;
 								score += cards[x1+1][y].getNum();
 							}
 							
@@ -346,9 +352,12 @@ public class GameView extends GridLayout {
 		int i,j;
 		for(i = 0;i < 4;i++){
 			for(j = 0;j < 4;j++){
-				
 				cards[i][j].setNum(dataForUndo[i][j]);
 			}
+		}
+		score = undoScore;
+		if( (mMainActivity ) != null) {
+			mMainActivity.setScore(score);
 		}
 	}
 	

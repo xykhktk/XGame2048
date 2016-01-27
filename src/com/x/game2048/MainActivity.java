@@ -3,6 +3,7 @@ package com.x.game2048;
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.util.Log;
 import android.view.View;
@@ -66,9 +67,12 @@ public class MainActivity extends Activity implements OnClickListener {
         refreshImageView.setOnClickListener(this);
         gameView.setmMainActivity(MainActivity.this);
         
-        setScore(0);
-        int h =getSharedPreferences(Consts.Sp_Key_name, Context.MODE_PRIVATE).getInt(Consts.Sp_Key_High_Score, 0);
-        highScoreTextview.setText(h + "");
+        //setScore(0);
+        SharedPreferences sp = getSharedPreferences(Consts.Sp_Key_name, Context.MODE_PRIVATE);
+        int hight =sp.getInt(Consts.Sp_Key_High_Score, 0);
+        int current = sp.getInt(Consts.Sp_Key_Current_Score, 0);
+        setScore(current);
+        highScoreTextview.setText(hight + "");
         
     }
 	
@@ -85,6 +89,7 @@ public class MainActivity extends Activity implements OnClickListener {
 				editor.putInt(Consts.Sp_Key_Data_Index + i + j, data[i][j]);
 			}
 		}
+		editor.putInt(Consts.Sp_Key_Current_Score, score);
 		editor.putBoolean(Consts.Sp_Key_Have_Status, true);
 		editor.commit();
 	}
